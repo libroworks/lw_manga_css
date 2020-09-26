@@ -1,0 +1,166 @@
+[
+  {
+    "f": "@div:([a-z|0-9|_ ]+)",
+    "r": "<div class=\"$1\">"
+  },
+  {
+    "f": "@divend",
+    "r": "<\/div>"
+  },
+  {
+    "f": "@frame:([a-z|0-9 ]+)",
+    "r": "<div class=\"frame $1\"><div class=\"serif\">"
+  },
+  {
+    "f": "@fend",
+    "r": "<\/div><\/div>"
+  },
+  {
+    "f": "@アリス「([a-z|0-9 ]+)",
+    "r": "@「alice $1"
+  },
+  {
+    "f": "@雪「([a-z|0-9 ]+)",
+    "r": "@「yuki $1"
+  },
+  {
+    "f": "@「([a-z|0-9 ]+)",
+    "r": "<div class=\"frame $1\"><div class=\"serif\">"
+  },
+  {
+    "f": "@」",
+    "r": "<\/div><\/div>"
+  },
+  {
+    "f": "<hr>",
+    "r": "<hr class=\"pagebreak\">"
+  },
+  {
+    "f": "@negative:(\\d+)",
+    "r": "<div style=\"margin-top:-$1mm\"><\/div>"
+  },
+  {
+    "f": "@positive:(\\d+)",
+    "r": "<div style=\"height:$1mm\"><\/div>"
+  },
+  {
+    "f": "@clear",
+    "r": "<div class=\"floatclear\"><\/div>"
+  },
+  {
+    "f": "<sp>",
+    "r": "<span class=\"spacer\"><\/span>"
+  },
+  {
+    "f": "@comment:([^@]*)@commend",
+    "r": "<span class=\"comment\">$1<\/span>"
+  },
+  {
+    "f": "@entermark",
+    "r": "<span class=\"entermark\">改行<\/span>"
+  },
+  {
+   "f": "〘",
+   "r": "<kbd>"
+  },
+  {
+    "f": "〙",
+    "r": "<\/kbd>"
+  },
+  {
+      "f": "<li[^>]*>▶",
+      "r": "<li class=\"aokome\">"
+  },
+  {
+      "f": "<li[^>]*>([\u2776-\u277F\u24EB-\u24F4]+)",
+      "r": "<li class=\"akakome\"><span>$1</span>"
+  },
+  {
+      "f": "<span class=\"hljs-comment\"([^>]*)>#←",
+      "r": "<span class=\"hljs-comment codered\"$1>"
+  },
+  {
+      "f": "<span class=\"hljs-comment\"([^>]*)>//←",
+      "r": "<span class=\"hljs-comment codered\"$1>"
+  },
+  {
+      "f": "<span class=\"hljs-comment\"([^>]*)>&lt;!--←",
+      "r": "<span class=\"hljs-comment codered\"$1>"
+  },
+  {
+      "f": "===[=]*",
+      "r": "<div class=\"container\">"
+  },
+  {
+      "f": "<p[^>]*>＃",
+      "r": "<p class=\"serif2\">"
+  },
+  {
+      "f": "<p[^>]*><small>",
+      "r": "<p class=\"small\"><small>"
+  },
+  {
+      "f": "<p[^>]*>【雪([^】]+)】",
+      "r": "<p class=\"kaiwa yuki $1\"><span class=\"kaiwaborder\">"
+  },
+  {
+      "f": "<p[^>]*>【アリス([^】]+)】",
+      "r": "<p class=\"kaiwa alice $1\"><span class=\"kaiwaborder\">"
+  },
+  {
+    "f": "<p>(<div class=\"[^\"]+\">)</p>",
+    "r": "$1"
+  },
+  {
+    "f": "<p><\/div><\/p>",
+    "r": "<\/div>"
+  },
+  {
+    "f": "<p><\/div>",
+    "r": "<\/div>"
+  },
+  {
+    "f": "<\/div><\/p>",
+    "r": "<\/div>"
+  },
+  {
+    "f": "(<div class=\"[^\"]+\">)</p>",
+    "r": "$1"
+  },
+  {
+    "f": "<p>(<div class=\"[^\"]+\">)",
+    "r": "$1"
+  },
+  {
+    "f": "(<hr class=\"[^\"]+\">)</p>",
+    "r": "$1"
+  },
+  {
+    "f": "<p>(<hr class=\"[^\"]+\">)",
+    "r": "$1"
+  },
+  {
+    "f": "<p>(<svg [^>]+>)<\/p>",
+    "r": "$1"
+  },
+  {
+    "f": "<p>(<image [^>]+>)",
+    "r": "$1"
+  },
+  {
+    "f": "(<image [^>]+>)<\/p>",
+    "r": "$1"
+  },
+  {
+    "f": "<p>(<\/svg>)",
+    "r": "$1"
+  },
+  {
+    "f": "(<\/svg>)<\/p>",
+    "r": "$1"
+  },
+  {
+    "f": "<p><\/p>",
+    "r": ""
+  }
+]

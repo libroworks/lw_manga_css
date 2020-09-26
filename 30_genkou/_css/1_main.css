@@ -1,0 +1,783 @@
+@charset "UTF-8";
+
+/* 会話とマンガ部分以外の基本となるスタイル
+This CSS was created by LibroWorks, Yuichio Ohtsu, Atsushi Kazama.
+*/
+
+
+/* Vivliostyleではこの形式のGoogle Fontsは使用できない
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap'); */
+
+/*リセット*/
+html {
+    orphans: 1;
+    widows: 1;
+    /* font-size: 0.25mm; */
+    /*qで級数指定できる*/
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* フォントはcss/fontsフォルダのファイルを直接参照 */
+@font-face{
+  font-family: keyfont;
+  src: url("fonts/keyboard-JP-Regular.otf");
+}
+@font-face{
+  font-family: notosans-r;
+  src: url("fonts/NotoSansJP-Regular.otf");
+}
+@font-face{
+  font-family: notosans-m;
+  src: url("fonts/NotoSansJP-Medium.otf");
+}
+@font-face{
+  font-family: notosans-b;
+  src: url("fonts/NotoSansJP-Bold.otf");
+}
+@font-face{
+  font-family: notosans-l;
+  src: url("fonts/NotoSansJP-Light.otf");
+}
+@font-face{
+  font-family: inconsolata;
+  src: url("fonts/Inconsolata-Regular.ttf");
+}
+@font-face{
+  font-family: inconsolata-b;
+  src: url("fonts/Inconsolata-Bold.ttf");
+}
+@font-face{
+  font-family: mplusrounded-t;
+  src: url("fonts/MPLUSRounded1c-Thin.ttf");
+}
+@font-face{
+  font-family: mplusrounded-l;
+  src: url("fonts/MPLUSRounded1c-Light.ttf");
+}
+@font-face{
+  font-family: mplusrounded-r;
+  src: url("fonts/MPLUSRounded1c-Regular.ttf");
+}
+@font-face{
+  font-family: mplusrounded-m;
+  src: url("fonts/MPLUSRounded1c-Medium.ttf");
+}
+@font-face{
+  font-family: mplusrounded-b;
+  src: url("fonts/MPLUSRounded1c-Bold.ttf");
+}
+@font-face{
+  font-family: mplusrounded-eb;
+  src: url("fonts/MPLUSRounded1c-ExtraBold.ttf");
+}
+@font-face{
+  font-family: mplusrounded-bl;
+  src: url("fonts/MPLUSRounded1c-Black.ttf");
+}
+@font-face{
+  font-family: rochester;
+  src: url("fonts/Rochester-Regular.ttf");
+}
+@font-face{
+  font-family: notoserif-r;
+  src: url("fonts/NotoSerifJP-Regular.otf");
+}
+@font-face{
+  font-family: notoserif-b;
+  src: url("fonts/NotoSerifJP-Bold.otf");
+}
+@font-face{
+  font-family: ocrb;
+  src: url("fonts/OCRB.otf");
+}
+/*ページサイズ
+今回はcss paged mediaで指定
+*/
+@page {
+    /*A5正寸148mmx210mm 裁ち落とし3mm*/
+    size: 154mm 216mm;
+    /* bleed: 3mm; */
+    /* トンボ （印刷所指定により今回はナシ） */
+    /* marks: cross crop; */
+    /*基本のマージン（左右で変えるときは別に指定）*/
+    margin: 18mm 18.5mm 18mm 18.5mm;
+    font-size: 10q;
+    /* background-image: url("img/comic_regex_bg2_bleed.svg"); */
+    background-image: url("img/comic_regex_bg2.png");
+    background-size: contain;
+}
+/* 左右で異なる部分の設定 */
+@page :left{
+    margin: 18mm 18.5mm 18mm 18.5mm;
+    @bottom-center {
+        content: counter(page);
+        margin-top: 2.5mm;
+        width: 8mm;
+        font-family: rochester;
+        font-size: 12q;
+        color: #FFF;
+        /* border-top: solid 0.25mm #888; */
+        /* background: #FFF; */
+    }
+    /* ツメをずらしたい場合、ファイルごとにCSSを分けるしかない */
+
+    /* @left-top{
+      content: "3";
+      vertical-align: top;
+      height: 12mm;
+      padding-left: 4mm;
+      margin: 8mm 0 0 -5.5mm;
+      background-image: url("img/comic_regex_tume.svg");
+      background-size: contein;
+      background-repeat: no-repeat;
+      background-position-x: -3mm;
+      font-family: rochester;
+      font-size: 18q;
+      line-height: 12mm;
+      color: #FFF;
+    } */
+
+    /* @left-middle {
+        content: env(doc-title);
+        width: 13mm;
+        margin-top: 21mm;
+        margin-right: 8mm;
+        writing-mode: vertical-rl;
+        vertical-align:top;
+        font-family: mplusrounded-r;
+        font-size: 10q;
+    } */
+
+}
+@page :right{
+    margin: 18mm 18.5mm 18mm 18.5mm;
+    @bottom-center {
+        content: counter(page);
+        margin-top: 2.5mm;
+        width: 8mm;
+        font-family: rochester;
+        font-size: 12q;
+        color: #FFF;
+    }
+    /* @right-middle {
+        content: env(doc-title);
+        width: 13mm;
+        margin-top: 21mm;
+        margin-left: -1mm;
+        writing-mode: vertical-rl;
+        vertical-align:top;
+        font-family: mplusrounded-r;
+        font-size: 10q;
+    } */
+}
+
+/* 最初のページ */
+/* @page: first{
+    @bottom-center {
+        content: none;
+    }
+    @right-middle {
+        content: none;
+    }
+    @left-middle {
+        content: none;
+    }
+} */
+
+body {
+    width: 117mm;
+    font-size: 12q;
+    line-height: 20q;
+    margin: auto;
+    font-family: notosans-l, sans-serif;
+    counter-reset: secheader;
+    /* background: #EDD; */
+}
+
+/* 強制改ページ指定*/
+.pagebreak {
+    visibility: hidden;
+    page-break-after: always;
+}
+
+/* 本文 */
+p {
+    text-align: justify;
+    font-size: 13q;
+    line-height: 22q;
+    text-indent: 1em;
+    font-family: notosans-l, sans-serif;
+}
+h3 + p{
+    margin-top: 3mm;
+}
+/* ハイパーリンク色変更、下線削除 */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 見出し類 */
+
+.chap_num{
+  font-family: rochester;
+  font-size: 80q;
+  line-height: 44q;
+  color: #C9CACA;
+  text-align: center;
+  margin-top: 14mm;
+}
+.chap_num::before{
+  content: "第";
+}
+.chap_num::after{
+  content: "章";
+}
+.chap_num::before, .chap_num::after{
+  font-family: mplusrounded-m;
+  font-size: 20q;
+  color: #C9CACA;
+  vertical-align: 40%;
+  margin: 0 4mm;
+}
+
+h1{
+    margin-top: 10mm;
+    margin-bottom: 10mm;
+    height: 30mm;
+    font-family: mplusrounded-b;
+    font-size: 50q;
+    line-height: 58q;
+    text-align: center;
+    color: #FFF;
+    counter-reset: sec-count;
+}
+.coverpage{
+    break-before: recto;
+    width: 154mm;
+    height: 216mm;
+    margin-left: -18.5mm;
+    margin-top: -18mm;
+    background: url("img/comic_regex_tobira_bg.png");
+    background-size: contain;
+    padding: 15mm;
+}
+.chap_lead {
+  font-family: mplusrounded-m;
+  height: 100mm;
+  width: 110mm;
+  margin-top: 15mm;
+  margin-left: -8mm;
+  padding: 25mm 25mm 29mm 18mm;
+  font-size: 14q;
+  color: #666;
+  /* background: url("img/tobira_fukidasi.svg");
+  background-size: contain;
+  background-repeat: no-repeat; */
+}
+
+.chap_lead p{
+    line-height: 20q;
+}
+
+/* .chap_lead::before {
+  content: " ";
+  background-image: url(img/tobira_alice.png);
+  right: -13mm;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 90mm;
+  height: 110mm;
+  position: absolute;
+  bottom: 0mm;
+  right: 0mm;
+} */
+
+.chap_lead>ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.chap_lead>ul>li {
+  padding-left: 14mm;
+  text-indent: -14mm;
+  color: #000;
+  margin-top: 1mm;
+  font-size: 15q;
+}
+
+.tobira_num {
+  color: #fff;
+  font-family: notosans-m;
+  font-size: 12q;
+  width: 12mm;
+  border-radius: 0.51mm;
+  background-color: #888;
+  display: inline-block;
+  text-align: center;
+  margin-right: 2mm;
+  height: 4mm;
+  line-height: 4mm;
+  text-indent: 0mm;
+}
+/* 節見出しのスタイル */
+h2{
+    font-family: mplusrounded-b;
+    font-size: 24q;
+    text-align: center;
+    margin-top: -5mm;
+}
+.secheader{
+    break-before: page;
+    height: 60mm;
+    width: 117mm;
+    margin: -18mm 0mm -28mm;
+    padding: 14.5mm 0 0 0;
+    background-image: url("img/comic_regex_lace01.svg");
+    background-size: 100%;
+    /* background-position: 0 -3mm; */
+    background-repeat: no-repeat;
+    counter-increment: sec-count;
+}
+
+h2::before{
+  content: " " counter(sec-count) " \A";
+  white-space: pre;
+  font-family: rochester, mplusrounded-r;
+  font-size: 33q;
+  color: #7e7e7e;
+  vertical-align: 5mm;
+}
+
+h3{
+    font-size: 17q;
+    line-height: 8mm;
+    font-family: mplusrounded-r;
+    text-align: center;
+    vertical-align: middle;
+    color: #FFF;
+    width: 120mm;
+    height: 10mm;
+    background: url("img/comic_regex_h3_bg.svg");
+    background-repeat: no-repeat;
+    margin-top: 5mm;
+    margin-bottom: 1mm;
+    margin-left: -1.5mm;
+}
+/* .secheader+h3{
+    margin-top: -8mm;
+} */
+
+h4{
+    font-size: 13q;
+    line-height: 22q;
+    font-family: mplusrounded-b;
+    margin-top: 5mm;
+}
+h4::before{
+    content: "◆";
+}
+pre + h4{
+    margin-top: 8mm;
+}
+
+h5{
+    font-size: 13q;
+    line-height: 22q;
+    font-family: mplusrounded-m;
+    margin-top: 5mm;
+}
+
+h6{
+    font-size: 10q;
+    line-height: 20q;
+    font-family: mplusrounded-m;
+    margin-top: 5mm;
+    color: #333;
+}
+
+h6+.figure{
+  margin-top: 1mm;
+}
+
+/* 引用文 */
+blockquote p{
+    position: relative;
+    padding: 3mm;
+    /* border: 1px solid #CCC; */
+    font-family: notoserif-r;
+    font-style: italic;
+    color: #333;
+}
+
+/* blockquote p::before, blockquote p::after {
+    font-family: 'FontAwesome';
+    font-size: 12q;
+    position: absolute;
+    opacity: .1;
+}
+
+blockquote::before {
+    content: '\f10d';
+    top: 0px;
+    left: 0px;
+}
+
+blockquote::after {
+    content: '\f10e';
+    bottom: 0px;
+    right: 0px;
+} */
+
+/* 図版領域 */
+.figure {
+    display: flex;
+    flex-direction: row;
+    /*横並びにする*/
+    align-items: flex-start;
+    justify-content: center;
+    /*縦に伸ばさない*/
+    flex-wrap: wrap;
+    position: relative;
+    margin-top: 5mm;
+    margin-bottom: 5mm;
+}
+.figure img, .figure svg{
+    border: solid 0.5mm #AAA;
+}
+/* キャプション */
+.figure p {
+    line-height: 14q;
+    text-indent: 0;
+    margin-top: 0.75mm;
+    font-size: 10q;
+    width: 100%;
+    text-align: center;
+}
+
+.figure.noborder img, .figure.noborder svg{
+    border: none;
+}
+.figure.noborder{
+    margin-top: 2mm;
+}
+
+
+/* pagebreak直後の見出しの上アキをゼロに（版面天付きに） */
+.pagebreak + h3, .pagebreak + h4, .pagebreak + h5, .pagebreak + h6{
+    margin-top: 0;
+}
+
+/* その他の要素 */
+pre {
+    font-size: 12q;
+    line-height: 20q;
+    background: #e6e6e6;
+    /* background-size: 19mm 19mm; */
+    /* background-position: 0 1.5mm; */
+    margin-top: 1mm;
+    margin-bottom: 5mm;
+    padding: 1.5mm;
+    overflow: visible;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: inconsolata, "ＭＳ ゴシック", monospace;
+    border-top: solid 0.3mm #666;
+    border-bottom: solid 0.3mm #666;
+}
+
+pre code {
+    font-family: inconsolata, "ＭＳ ゴシック", monospace;
+}
+
+p code{
+    font-family: notosans-l;
+}
+p em code{
+    font-family: inconsolata, "ＭＳ ゴシック", monospace;
+}
+/* コード内引き出し線 */
+.codered{
+  background: #fff;
+  font-size: 10q;
+  line-height: 12q;
+  position: relative;
+  border: solid 0.15mm #000;
+  padding: 0 1mm 0.5mm 1mm;
+  font-family: notosans-m, sans-serif;
+}
+.codered::before{
+  content: "";
+  display: block;
+  position: absolute;
+  width: 5mm;
+  top: 1.75mm;
+  left: -5mm;
+  border-bottom: solid 0.25mm #000;
+}
+
+ol, ul{
+    margin-left: 5mm;
+    font-weight: normal;
+    margin-top: 2.5mm;
+    margin-bottom: 2.5mm;
+}
+
+strong{
+    font-family: notosans-m;
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-decoration-color: #888;
+    font-weight: normal;
+}
+strong.super{
+    font-family: notosans-b;
+    font-size:14q;
+}
+em{
+    border-style: dashed;
+    border-width: 0.15mm;
+    border-color: #222;
+    padding: 0 0.5mm;
+    /* border-radius: 2mm; */
+    font-style: normal;
+    background: #F8F8F8;
+    margin: 0 0.5mm;
+}
+
+.small{
+    text-indent: 0;
+    margin-bottom: 4mm;
+    font-size: 11q;
+}
+
+.container + .small{
+    margin-top: -3mm;
+}
+
+h2 rt{
+    font-size: 7q;
+    transform: translateY(.5em);
+}
+
+kbd{
+    font-family: keyfont;
+}
+
+/* 表 */
+table{
+    border-collapse: collapse;
+    font-size: 11q;
+    line-height: 16q;
+}
+td, th{
+    border: solid 0.5mm #888;
+    padding: 1mm;
+    min-width: 6em;
+}
+
+th{
+  font-family: notosans-m;
+  color: #ffffff;
+  background-color: #7e7e7e;
+}
+
+/* コラム */
+.column{
+    border: dashed 0.6mm #aaa;
+    padding: 4mm;
+    border-radius: 2mm;
+    margin: 5mm 0;
+    position: relative;
+}
+.column h4{
+    margin-top: 0;
+    margin-bottom: 2mm;
+    font-size: 14q;
+    text-indent: 1em;
+}
+.column h4::before{
+    content: url("img/comic_regex_column_kazari.svg");
+    width: 12mm;
+    height: 12mm;
+    position: absolute;
+    display: block;
+    top: -0.6mm;
+    left: -0.6mm;
+  }
+.column p, .column ul, .column ol{
+    font-size: 11q;
+    line-height: 18q;
+}
+
+/* マメ知識 */
+.mamechi{
+    background-color: #e6e6e6;
+    padding: 2mm;
+    border-radius: 2mm;
+    margin: 5mm 0;
+    position: relative;
+    text-indent: 0;
+    text-align: justify;
+    font-size: 11q;
+    line-height: 16q;
+    font-family: notosans-l;
+}
+.mamechi::before{
+    content: "";
+    background: url("img/chara_mame.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 17mm;
+    height: 17mm;
+    margin-right: 2mm;
+    margin-left: -1mm;
+    margin-top: -5mm;
+    float: left;
+}
+
+
+.mamechi p, .mamechi ul, .mamechi ol{
+  text-indent: 0;
+  text-align: justify;
+  font-size: 11q;
+  line-height: 16q;
+  font-family: notosans-l;
+}
+
+/* プレート（板書） */
+.bansho{
+    font-family: notosans-b;
+    font-size:15q;
+    line-height: 22q;
+    text-align: center;
+    background: #6e6e6e;
+    color: #FFF;
+    padding: 1.5mm;
+    margin: 6mm 0;
+    border-radius: 1mm;
+    border: solid .8mm #aaaaaa;
+    position: relative;
+}
+.bansho::after{
+  content: "";
+  background: url("img/plate_icon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 8mm;
+  height: 3mm;
+  position: absolute;
+  right: 0.5mm;
+  bottom: -0.3mm;
+}
+
+.bansho code{
+    font-family: inconsolata-b, "ＭＳ ゴシック";
+}
+.container .bansho{
+    width: 100%;
+    margin: 0;
+    margin-bottom: 3.5mm;
+    padding: 4mm;
+}
+
+.bansho p{
+    text-align: center;
+    font-family: notosans-b;
+    font-size:15q;
+    line-height: 22q;
+}
+
+.bansho li{
+    text-align: left;
+}
+.bansho li:only-child{
+    text-align: center;
+    list-style: none;
+    padding-right: 2mm;
+}
+.bansho li:only-child::before{
+    content: "\2022";
+    margin-right: 3mm;
+}
+
+/* ページタイトル */
+#pagetitle{
+    display: none;
+}
+
+/* 約物処理テスト */
+.yakumono{
+    letter-spacing: -0.25em;
+}
+
+/* 長体 */
+.tyotai{
+    display: inline-block;
+    font-size: 0.9em;
+    transform: scaleY(1.11);
+}
+.tyotai2{
+    display: inline-block;
+    font-size: 0.8em;
+    transform: scaleY(1.25);
+}
+.tyotai3{
+    display: inline-block;
+    font-size: 0.7em;
+    transform: scaleY(1.428571);
+}
+
+/*編集コメント（サイドバー表示）*/
+.comment{
+  position: absolute;
+  display: block;
+  text-indent: 0;
+  right: -8em;
+  font-size: 8q;
+  line-height: 13q;
+  background: #ff0;
+  color: #F00;
+  width: 8em;
+  border: solid 0.25mm #f80;
+  font-family: notosans-r;
+}
+/*編集コメント（長文用）*/
+.hen, .hen p{
+  font-size: 10q;
+  line-height: 3mm;
+  background: #FF0;
+  color:#F00;
+  text-indent: 0;
+}
+
+
+.whitepage{
+    break-before: page;
+    width: 154mm;
+    height: 216mm;
+    margin-left: -18.5mm;
+    margin-top: -18mm;
+    background: white;
+    padding: 15mm;
+}
+
+
+.entermark{
+    background: url("img/kaigyou.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 13q;
+    height: 13q;
+    color: rgba(0,0,0,0);
+    font-size: 8q;
+    /* display: inline-block; */
+}

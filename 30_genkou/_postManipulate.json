@@ -1,0 +1,7 @@
+[
+  {
+    "selector": "h2",
+    "method": "wrap",
+    "paramator": "<div class=\"secheader\"></div>"
+  }
+]

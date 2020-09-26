@@ -1,0 +1,19 @@
+# chap*.html
+
+*.tmp
+
+# Word temporary
+~$*.doc*
+
+# Excel temporary
+~$*.xls*
+
+# Excel Backup File
+*.xlk
+
+# PowerPoint temporary
+~$*.ppt*
+
+.DS_Store
+# 30_genkou/format_design_test/formattest.html
+# 30_genkou/00_maeduke.html
