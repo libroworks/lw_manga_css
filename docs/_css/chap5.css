@@ -1,0 +1,75 @@
+@page :left {
+  @left-top {
+    content: "5";
+    width: 12mm;
+    margin-top: 54mm;
+    padding-right: 6.5mm;
+    height: 9mm;
+    background: #FDD;
+    background: url("img/comic_regex_tume1.svg");
+    background-repeat: no-repeat;
+    background-size: 19.5mm 9mm;
+    background-position: -7.5mm 0mm;
+    background-origin: border-box;
+    font-family: rochester;
+    font-size: 18q;
+    line-height: 35q;
+    color: #FFF;
+    text-indent: 4.5mm;
+  }
+
+  @left-middle {
+    content: env(doc-title);
+    width: 2.5mm;
+    margin-right: 9mm;
+    margin-left: 8mm;
+    margin-top: 34mm;
+    writing-mode: vertical-rl;
+    vertical-align: top;
+    font-family: mplusrounded-r;
+    font-size: 10q;
+    line-height: 10q;
+    color: #4d4d4d;
+  }
+}
+
+@page :right {
+  @right-top {
+    content: "5";
+    width: 12mm;
+    margin-top: 54mm;
+    padding-left: 6.5mm;
+    height: 9mm;
+    background: #FDD;
+    background: url("img/comic_regex_tume1.svg");
+    background-repeat: no-repeat;
+    background-size: 19.5mm 9mm;
+    background-position: 6mm 0mm;
+    background-origin: border-box;
+    font-family: rochester;
+    text-align: left;
+    font-size: 18q;
+    line-height: 35q;
+    color: #FFF;
+    text-indent: 3mm;
+  }
+  @right-middle {
+    content: env(doc-title);
+    width: 2.5mm;
+    margin-right: 8mm;
+    margin-left: 9mm;
+    margin-top: 34mm;
+    writing-mode: vertical-rl;
+    vertical-align: top;
+    font-family: mplusrounded-r;
+    font-size: 10q;
+    line-height: 10q;
+    color: #4d4d4d;
+  }
+}
+
+
+/* 開始ノンブル変更
+/* @page:first{
+    counter-reset: page 10;
+} */

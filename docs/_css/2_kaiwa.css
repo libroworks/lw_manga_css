@@ -1,0 +1,232 @@
+.kaiwaframe{
+    width: 100%;
+    border:solid 0.5mm #555;
+    margin-bottom: 3.5mm;
+    /* height: 37mm; */
+    position: relative;
+    font-size: 13q;
+    line-height: 20q;
+    padding: 2mm 2mm 0 2mm;
+    /* background: #EEE; */
+}
+.kaiwaframe .figure{
+    margin-top: 2mm;
+    margin-bottom: 2mm;
+}
+.kaiwa{
+    overflow: visible;
+    text-align: left;
+    max-width: 74%;
+    font-family: notosans-r;
+    font-feature-settings: "palt" 1;
+    /* background: #FFF; */
+    text-indent: 0;
+    position: relative;
+    margin-bottom: 3mm;
+    break-inside: avoid;
+    text-align: justify;
+}
+/* .kaiwa+:not(.kaiwa){
+    margin-top: 6mm;
+} */
+.kaiwaborder{
+    /* 囲みを.kaiwaの内側のspanに設定し、文字量が少ないときに可変を実現する */
+    border: solid 0.3mm #888;
+    border-radius: 6mm;
+    padding: 1.5mm 4mm;
+    display: inline-block;
+    background: #FFF;
+}
+.kaiwa::before{
+    clear: both;
+    content: "";
+    display: block;
+}
+
+p.kaiwa{
+    font-size: 13q;
+    line-height: 20q;
+    font-family: notosans-r;
+}
+.kaiwa.yuki{
+    margin-left: 15mm;
+}
+.kaiwa.yuki .kaiwaborder{
+    background: #EEE;
+}
+.kaiwa.alice{
+    margin-left: 15mm;
+    text-align: right;
+}
+/* 吹き出しの尻尾 */
+.kaiwa.yuki::before{
+    content: "";
+    background: url("img/kaiwa_face/fukidasi_kl.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 5mm;
+    height: 3mm;
+    display: block;
+    position: absolute;
+    left: -2mm;
+    bottom: 1mm;
+    z-index: 100;
+}
+.kaiwa.alice::before{
+    content: "";
+    background: url("img/kaiwa_face/fukidasi_kr.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 5mm;
+    height: 3mm;
+    display: block;
+    position: absolute;
+    right: -2.5mm;
+    bottom: 0.8mm;
+    z-index: 100;
+}
+/* .kaiwa code{
+    font-family: inconsolata, "ＭＳ ゴシック";
+} */
+.kaiwa.migiyose{
+    text-align: right;
+}
+.kaiwa.hidariyose{
+    text-align: justify;
+}
+
+
+.kaiwa::after{
+    width: 20.8mm;
+    height: 16mm;
+    position: absolute;
+    bottom: -1.5mm;
+}
+
+/* アリス表情 */
+.kaiwa.namida::after{
+    content: "";
+    background: url("img/kaiwa_face/chara1-1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    right: -19mm;
+}
+.kaiwa.shibu::after{
+    content: "";
+    background: url("img/kaiwa_face/chara1-2.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    right: -19mm;
+}
+.kaiwa.hatena::after{
+    content: "";
+    background: url("img/kaiwa_face/chara1-3.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    right: -19mm;
+}
+.kaiwa.gyao::after{
+    content: "";
+    background: url("img/kaiwa_face/chara1-4.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    right: -19mm;
+}
+.kaiwa.doya::after{
+    content: "";
+    background: url("img/kaiwa_face/chara1-5.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    right: -19mm;
+}
+.kaiwa.fuan::after{
+    content: "";
+    background: url("img/kaiwa_face/chara1-6.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    right: -19mm;
+}
+.kaiwa.yatta::after{
+    content: "";
+    background: url("img/kaiwa_face/chara1-7.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    right: -19mm;
+}
+.kaiwa.sumashi::after{
+    content: "";
+    background: url("img/kaiwa_face/chara1-8.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    right: -19mm;
+}
+
+/* 雪 */
+.kaiwa.jito::after{
+    content: "";
+    background: url("img/kaiwa_face/chara2-1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: -17.5mm;
+}
+.kaiwa.shock::after{
+    content: "";
+    background: url("img/kaiwa_face/chara2-2.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: -17.5mm;
+}
+.kaiwa.anone::after{
+    content: "";
+    background: url("img/kaiwa_face/chara2-3.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: -17.5mm;
+}
+.kaiwa.kohon::after{
+    content: "";
+    background: url("img/kaiwa_face/chara2-4.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: -17.5mm;
+}
+.kaiwa.gohoubi::after{
+    content: "";
+    background: url("img/kaiwa_face/chara2-5.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: -17.5mm;
+}
+.kaiwa.iyada::after{
+    content: "";
+    background: url("img/kaiwa_face/chara2-6.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: -17.5mm;
+}
+.kaiwa.soreda::after{
+    content: "";
+    background: url("img/kaiwa_face/chara2-7.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: -17.5mm;
+}
+.kaiwa.desuyo::after{
+    content: "";
+    background: url("img/kaiwa_face/chara2-8.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: -17.5mm;
+}
+
+/* 格好の悪い微調整 */
+/* 微妙に吹き出しのシッポが刺さるときに使う */
+.yuki.kwrs::before{
+    left: -1.6mm; !important;
+    bottom: 0.5mm;
+}
+/* アリスの会話枠を半分にする */
+.alice.kwhf{
+    width:50%;
+    margin-left: 41mm;
+}

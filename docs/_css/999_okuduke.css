@@ -1,0 +1,294 @@
+/*リセット*/
+html {
+    orphans: 1;
+    widows: 1;
+    /* font-size: 0.25mm; */
+    /*qで級数指定できる*/
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face{
+  font-family: keyfont;
+  src: url("fonts/keyboard-JP-Regular.otf");
+}
+@font-face{
+  font-family: notosans-r;
+  src: url("fonts/NotoSansJP-Regular.otf");
+}
+@font-face{
+  font-family: notosans-m;
+  src: url("fonts/NotoSansJP-Medium.otf");
+}
+@font-face{
+  font-family: notosans-b;
+  src: url("fonts/NotoSansJP-Bold.otf");
+}
+@font-face{
+  font-family: notosans-l;
+  src: url("fonts/NotoSansJP-Light.otf");
+}
+@font-face{
+  font-family: inconsolata;
+  src: url("fonts/Inconsolata-Regular.ttf");
+}
+@font-face{
+  font-family: inconsolata-b;
+  src: url("fonts/Inconsolata-Bold.ttf");
+}
+@font-face{
+  font-family: mplusrounded-t;
+  src: url("fonts/MPLUSRounded1c-Thin.ttf");
+}
+@font-face{
+  font-family: mplusrounded-l;
+  src: url("fonts/MPLUSRounded1c-Light.ttf");
+}
+@font-face{
+  font-family: mplusrounded-r;
+  src: url("fonts/MPLUSRounded1c-Regular.ttf");
+}
+@font-face{
+  font-family: mplusrounded-m;
+  src: url("fonts/MPLUSRounded1c-Medium.ttf");
+}
+@font-face{
+  font-family: mplusrounded-b;
+  src: url("fonts/MPLUSRounded1c-Bold.ttf");
+}
+@font-face{
+  font-family: mplusrounded-eb;
+  src: url("fonts/MPLUSRounded1c-ExtraBold.ttf");
+}
+@font-face{
+  font-family: mplusrounded-bl;
+  src: url("fonts/MPLUSRounded1c-Black.ttf");
+}
+@font-face{
+  font-family: rochester;
+  src: url("fonts/Rochester-Regular.ttf");
+}
+@font-face{
+  font-family: notoserif-r;
+  src: url("fonts/NotoSerifJP-Regular.otf");
+}
+@font-face{
+  font-family: notoserif-b;
+  src: url("fonts/NotoSerifJP-Bold.otf");
+}
+@font-face{
+  font-family: ocrb;
+  src: url("fonts/OCRB.otf");
+}
+/*ページサイズ
+今回はcss paged mediaで指定
+*/
+@page {
+    /*A5正寸148mmx210mm 裁ち落とし3mm*/
+    size: 154mm 216mm;
+    /* bleed: 3mm; */
+    /* トンボ （印刷所指定により今回はナシ） */
+    /* marks: cross crop; */
+    /*基本のマージン（左右で変えるときは別に指定）*/
+    margin: 0;
+    font-size: 10q;
+    /* background-image: url("img/comic_regex_bg2_bleed.svg"); */
+    /* background-image: url("img/comic_regex_bg2.png");
+    background-size: contain; */
+}
+
+/* 奥付 */
+.okuduke {
+  break-before: page;
+  /* width: 154mm; */
+  /* height: 216mm; */
+  /* margin-left: -18.5mm;
+  margin-top: -18mm; */
+  background-color: #fff;
+  background-size: contain;
+  padding: 15mm;
+  break-inside: avoid;
+}
+
+.stafflist, .tokuten, .okd_alert, .okuduke>table {
+  width: 100.5mm;
+}
+.okuduke table th, .okuduke table td {
+  border: none;
+  padding: 0;
+}
+.stafflist {
+  font-family: notosans-r;
+  font-size: 9.5q;
+  line-height: 15q;
+  padding: 2mm;
+  border: dotted #000 0.15mm;
+  margin-bottom: 6mm;
+}
+.stafflist ul {
+  list-style-type: none;
+  margin: 0;
+}
+.stafflist li{
+    list-style-type: none;
+}
+
+.tokuten {
+  padding: 2.5mm;
+  margin-bottom: 6mm;
+  background-color: #dedede;
+  border-radius: 2mm;
+  position: absolute;
+}
+.tokuten h4{
+  font-family: notosans-b;
+  font-size: 12q;
+  line-height: 15q;
+  margin: 0;
+  padding: 0;
+}
+.tokuten h4::before{
+  content: none;
+}
+.tokuten p{
+  font-family: notosans-r;
+  font-size: 11q;
+  line-height: 15q;
+}
+.tokuten table {
+  margin-top: 1mm;
+}
+.qrcode{
+    width: 12mm;
+    height: 12mm;
+    position: absolute;
+    right: 3mm;
+    bottom: 3mm;
+}
+.tokuten .homepage {
+  font-family: notosans-m;
+  color: #fff;
+  font-size: 12q;
+  background-color: #000;
+  border-radius: 2mm;
+  padding: 0 2mm;
+}
+
+.tokuten .toku_url {
+  font-family: notosans-b;
+  font-size: 12q;
+}
+
+.tokuten svg {
+  width: 12mm;
+  height: 12mm;
+  margin-left: 2mm;
+}
+
+/* 奥付メイン */
+.okuduke>table {
+  position: absolute;
+  /* bottom: 25mm; */
+  bottom: 27mm;
+}
+.okuduke>table td{
+  font-size: 11.3q;
+  line-height: 14q;
+  vertical-align: text-top;
+  min-width: 2em;
+}
+.okuduke>table td{
+    font-size: 11.3q;
+    line-height: 14q;
+    vertical-align: text-top;
+    min-width: 2em;
+    color: #000;
+    background: #FFF;
+    font-family: notoserif-r;
+}
+.okuduke>table tr td:first-child{
+    width: 3em;
+}
+.okd_pad{
+    width: 2em;
+}
+
+tr.okd_booktitle td{
+  font-family: notosans-b;
+  font-size: 18q;
+  line-height: 22q;
+  padding: 0 0 2mm 0;
+  border-bottom: solid #000 0.5mm;
+}
+tr.okd_publishdate td{
+  font-family: notoserif-r;
+  padding: 1mm 0;
+  border-bottom: solid #000 0.25mm;
+}
+tr.okd_staff td{
+    font-family: notosans-r;
+  padding: 1mm 0;
+}
+
+tr.okd_isbn td{
+  font-family: ocrb;
+  padding: 1mm 0 0mm 0;
+  border-top: solid #000 0.25mm;
+}
+tr.okd_copyright td, tr.okd_printed td{
+  font-family: notoserif-r;
+  padding: 0mm 0;
+}
+tr.okd_printed td {
+  text-align: right;
+}
+
+/* .okuduke table td, .okuduke tableth{
+    border: solid 1mm #F00;
+} */
+
+/* 奥付アラート */
+.okd_alert{
+  position: absolute;
+  /* bottom: 5mm; */
+  bottom: 12mm;
+  text-align: justify;
+  display: flex;
+  justify-content:space-between;
+}
+.okd_alert p{
+    font-family: notosans-r;
+    font-size: 9.2q;
+    line-height: 13q;
+    text-indent: 0;
+    padding: 1mm;
+    margin-top: 1mm;
+    background-color: #e6e6e6;
+    /* margin-right: 2mm; */
+}
+.okd_alert p{
+    flex-basis: 37%;
+}
+.okd_alert p:first-child{
+    flex-basis: 59%;
+}
+
+/* .okd_alert ul{
+  list-style: none;
+  margin: 0;
+} */
+
+/* .okd_alert li {
+  padding: 1mm;
+  margin-top: 1mm;
+  background-color: #e6e6e6;
+  display: table-cell;
+  border-left:3mm solid #fff;
+}
+.okd_alert li:first-child {
+  border-left:none;
+} */
