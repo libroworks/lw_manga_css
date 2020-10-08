@@ -1,19 +1,53 @@
 @charset "UTF-8";
-/* マンガ部分関係のCSS */
+/* マンガ部分関係のCSS
+（会社WordPress用にカスタム） */
 
 /* コマのコンテナ */
-.container{
+.manga_container{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
     display: flex;
     flex-direction: row;
     /*横並びにする*/
     align-items: flex-end;
     /*縦に伸ばさない*/
     flex-wrap: wrap;
-    margin-top: 4mm;
-    margin-bottom: 2mm;
+    margin: 4mm auto;
+    margin-bottom: 8mm;
     justify-content: space-between;
     font-size: 13q;
     line-height: 20q;
+    width: 117mm;
+
+    /* transform-origin: top; */
+    /* transform: scale(1.2); */
+    /* transition: transform 0.5s; */
+}
+
+@media screen and (min-width:769px) {
+    /*　画面サイズ769px以上　*/
+    .manga_container{
+        transform-origin: top;
+        transform: scale(1.2);
+    }
+}
+@media screen and (max-width:420px) {
+    /*　画面サイズ 420px以下　*/
+    .manga_container{
+        transform-origin: left top;
+        transform: scale(0.7);
+        /* width: 100%; */
+    }
+}
+
+/* .manga_container:hover{
+} */
+.manga_container *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* コマ */
@@ -26,6 +60,11 @@
     position: relative;
     font-size: 13q;
     line-height: 20q;
+
+    transition: transform 0.2s;
+}
+.frame:hover{
+    transform: scale(1.2);
 }
 /* スリムサイズ1/3 */
 .fslim{
@@ -446,7 +485,7 @@
 }
 .frame .serif{
     border-bottom: solid 0.5mm #888;
-    border-radius: 0 0 40% 40%;
+    border-radius: 0 0 40% 40% !important;
     background: #FFF;
     margin:auto;
     position: absolute;
@@ -539,7 +578,7 @@
     padding: 1.5mm;
     border-left: solid 0.5mm #888;
     border-right: solid 0.5mm #888;
-    border-radius: 50% 50% 50% 50%;
+    border-radius: 50% 50% 50% 50% !important;
 }
 .serif2{
     position: absolute;
@@ -574,7 +613,7 @@
     right:-20mm;
     max-width: 12em;
     border: solid 0.5mm #888;
-    border-radius: 50%;
+    border-radius: 50% !important;
     padding: 2mm 3mm;
     background: #FFF;
     text-indent: 0;
@@ -749,7 +788,7 @@
     width: 40%;
     right: 20%;
     border: solid 0.5mm #888;
-    border-radius: 50%;
+    border-radius: 50% !important;
     padding: 2mm;
     margin-top: 2mm;
 }
@@ -761,7 +800,7 @@
     right: 1.5mm;
     top: 6mm;
     border: solid 0.5mm #888;
-    border-radius: 50%;
+    border-radius: 50% !important;
     padding: 3mm 2mm;
     /* margin-top: 2mm; */
 }
