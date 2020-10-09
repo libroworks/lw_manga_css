@@ -31,6 +31,7 @@
     .manga_container{
         transform-origin: top;
         transform: scale(1.2);
+        margin-bottom: 24mm;
     }
 }
 @media screen and (max-width:420px) {
@@ -39,6 +40,7 @@
         transform-origin: left top;
         transform: scale(0.7);
         /* width: 100%; */
+        margin-bottom: -28mm;
     }
 }
 
