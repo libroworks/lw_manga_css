@@ -24,12 +24,12 @@ CSSは「30_genkou/_css」フォルダに収録されています。ページ設
 
 |CSSファイル | 役割
 |--|--
-|1_main.css  |h1～h6やpなど、標準的なタグ用のスタイルを定義
-|2_kaiwa.css |会話表現用のスタイルを定義
-|3_manga.css |マンガ表現用のスタイルを定義
+|1_main.css  |h1～h6やpなど、標準的なタグ用のスタイルを定義。必須
+|2_kaiwa.css |会話表現用のスタイルを定義。必須
+|3_manga.css |マンガ表現用のスタイルを定義。必須
 |00_maeduke.css |目次、前書きなどの前付けのスタイルを定義
 |chap1.css～chap6.css |1～6章のツメのスタイルを定義
-|chap7_applendix.css |付録章のスタイルを定義
+|chap7_appendix.css |付録章のスタイルを定義
 |99_atodule.css  |索引、プロフィールなどのスタイルを定義
 |999_okuduke.css |奥付のスタイルの定義
 
@@ -58,12 +58,50 @@ CSSは「30_genkou/_css」フォルダに収録されています。ページ設
 
 
 ## HTML構成について
-複数のHTMLで構成されており、VivliostyleのbookModeで連結しています。
+複数のHTMLで構成されており、VivliostyleのbookModeで連結しています。00_maeduke.html内の目次（nav要素）内でリンクされたファイルが、自動的に読み込まれます。
+
+999_okuduke.html以外は同名のMarkdownファイルから変換したものです。
+
+|HTMLファイル |用途
+|--|--
+|00_maeduke.html |前付け（前書き、目次、キャラクター紹介）
+|chap1/chap1.html～chap6/chap6.html | 1章～6章
+|chap7/chap7_appendix.html | 付録
+|99_atoduke.html |後付け（索引、ファイル案内、プロフィール）
+|999_okuduke.html |奥付
 
 
+## Markdownからの変換について
+現状、MarkdownからHTMLの変換にはAtomエディタ用のMDBPプラグインが必要です。
+
+https://atom.io/packages/mdbp-markdown-book-preview
+
+AtomエディタにMDBPをインストールした後、「フォルダを開く」昨日でローカルリポジトリを開き、Markdownファイルのどれかを右クリックして「MDBP→Start Live Server」、「MDBP→Open Vivliostyle Preview」を選択します。
+
+### Markdown変換ルールについて
+ルールについては以下のファイルにまとめています（更新中）。
+
+30_genkou/format_desing_test/mangaformat.md
 
 
-## aaaa
+### Markdown変換の要件
+Markdown変換のためにMDBP以外の変換ツールを使ってもよいのですが、以下の機能が必要になります。
+
+- _postReplace.jsonの置換リストに基づいた置換処理。<br>
+原稿として書きやすい表記、本ごとの独自指定のために使用しています。
+- svgimgによるトリミング処理<br>
+あまり評判がよくない機能ですが、ないと細かい画面ショットのサイズ調整ができません。
+- Markdownファイルと同名のCSSを読み込む機能
+- 見出しにIDを振る（目次に必要）
+- Highlight.jsを使ったソースコードの色分け<br>
+色分けはめったにしませんが、コメント部分を目立つように加工するワザが使えます。
 
 
-説明作成中……
+## WordPress用CSSについて
+「3_frame_wp.css」はWebページ向けに軽くカスタマイズしたものです。
+
+WordPressで使う場合は、WPフォルダ内のどこかに3_frame_wp.css、manga_charaフォルダ、manga_backフォルダ、3frame_fukidashi_c/l/r.svgをアップロードし、「Code Snippets」などのfunction.phpを編集するプラグインを使ってCSSファイルを読み込みます。
+
+```
+wp_enqueue_style( 'manga-css', 'https://www.libroworks.co.jp/manga_css/3_frame_wp.css' );
+```
