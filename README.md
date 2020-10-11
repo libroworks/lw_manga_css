@@ -46,7 +46,7 @@ CSSは「30_genkou/_css」フォルダに収録されています。ページ設
 |comic_regex_bg2.png | 本文の背景画像
 |comic_regex_circle01.png |キャラクター紹介の背景画像
 |comic_regex_h3_bg.svg |h3見出しの背景画像
-|comic_regex_lace01.svg |セクションタイトルの背景画像
+|comic_regex_lace01.svg |セクションタイトル（h2見出し）の背景画像
 |comic_regex_mae_h2_bg.svg |前付けの見出しの背景画像
 |comic_regex_mae_mokuji01.svg |目次の見出し背景画像
 |comic_regex_mae_mokuji02.svg |目次の見出し背景画像
