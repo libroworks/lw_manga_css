@@ -527,6 +527,15 @@
 
 
 /* アリスのシッポ */
+.alice .serif::after{
+  position: absolute;
+  content: url("img/3frame_fukidasi_l.svg");
+  width: 5mm;
+  height: 5mm;
+  bottom: -4mm;
+  right: 30%;
+}
+
 .fwide.alice .serif::after{
   position: absolute;
   content: url("img/3frame_fukidasi_l.svg");
@@ -661,6 +670,10 @@
     text-shadow:  #FFF -0.1mm 0mm 0.5mm;
     z-index: 10;
 }
+.fleft.alice .serif::after{
+    content: none;
+}
+
 /* fwideと組み合わせる場合の補正 */
 .fwide+.fleft::after{
     left: -82mm;
@@ -694,6 +707,9 @@
     text-shadow: #FFF 0.1mm 0mm 0.5mm;
     z-index: 10;
 }
+.fright.yuki .serif::after{
+    content: none;
+}
 
 /* コマを高くする */
 .ftall{
@@ -715,45 +731,6 @@
 /* コマを低くする */
 .fshort{
     height: 37mm;
-}
-
-/* カンバン */
-.kanban{
-    width: 57mm;
-    padding: 7mm 3mm 3mm 3mm;
-    margin-bottom: 2mm;
-    height: 37mm;
-    position: relative;
-    border-radius: 2mm;
-    text-align: justify;
-    text-indent: 0;
-    font-size: 13q;
-    line-height: 20q;
-    background: url("img/comic_regex_kanban.svg");
-    background-clip: 100%;
-    background-repeat: no-repeat;
-    background-color: #e6e6e6;
-    background-size: auto 4.5mm;
-    background-position: center 1.5mm;
-}
-/* .kanban h4{
-    font-size: 12q;
-    color: #FFF;
-    line-height: 16q;
-    letter-spacing: 1em;
-    margin-top: 0;
-    margin-bottom: 1mm;
-    text-align: center;
-} */
-/* .kanban h4::before{
-  content: none;
-} */
-
-.kanban p{
-    text-indent: 0;
-    text-align: justify;
-    font-size: 13q;
-    line-height: 20q;
 }
 
 /* spacer */
