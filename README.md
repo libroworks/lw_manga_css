@@ -1,7 +1,7 @@
 # lw_manga_css～Vivliostyle用マンガスタイルCSS
 
 ## 概要
-リブロワークスが制作した『そろそろ常識？ マンガでわかる「正規表現」』から、原稿とイラストを除き、CSSとダミー原稿をまとめたものです。
+リブロワークスが制作した『そろそろ常識？ マンガでわかる「正規表現」』から、原稿とイラストを除き、CSSとダミー原稿をまとめたものです。イラストはリブロワークス社内で作成したものに差し替えているので、CSSと同じライセンスの下で使用できます。
 
 [Vivliostyle](https://vivliostyle.org/ja/)を利用して、印刷可能なPDFを作成することができます。
 
@@ -17,6 +17,7 @@ https://www.c-r.com/book/detail/1360
 1. ローカルにCloneして個々のHTMLをwebブラウザで開く。ページングはされないがとりあえず見ることができます。
 2. ローカルでWebサーバーを立ち上げてルートにファイルを配置し、「`http://localhost/30_genkou/viewer/#src=../00_maeduke.html&bookMode=true`」のような指定で開く。
 3. 当社製のAtomエディタ用パッケージ[MDBP](https://atom.io/packages/mdbp-markdown-book-preview)で、00_maeduke.mdを開く。
+4. レンダリング後のPDFが「40_pdf/fullpage_sample.pdf」です。
 
 
 ## CSSについて
@@ -72,11 +73,11 @@ CSSは「30_genkou/_css」フォルダに収録されています。ページ設
 
 
 ## Markdownからの変換について
-現状、MarkdownからHTMLの変換にはAtomエディタ用のMDBPプラグインが必要です。
+現状、MarkdownからHTMLへの変換にはAtomエディタ用のMDBPプラグインが必要です。
 
 https://atom.io/packages/mdbp-markdown-book-preview
 
-AtomエディタにMDBPをインストールした後、「フォルダを開く」昨日でローカルリポジトリを開き、Markdownファイルのどれかを右クリックして「MDBP→Start Live Server」、「MDBP→Open Vivliostyle Preview」を選択します。
+AtomエディタにMDBPをインストールした後、「フォルダを開く」機能でローカルリポジトリを開き、Markdownファイルのどれかを右クリックして「MDBP→Start Live Server」、「MDBP→Open Vivliostyle Preview」を選択します。
 
 ### Markdown変換ルールについて
 ルールについては以下のファイルにまとめています（更新中）。
@@ -90,7 +91,7 @@ Markdown変換のためにMDBP以外の変換ツールを使ってもよいの�
 - _postReplace.jsonの置換リストに基づいた置換処理。<br>
 原稿として書きやすい表記、本ごとの独自指定のために使用しています。
 - svgimgによるトリミング処理<br>
-あまり評判がよくない機能ですが、ないと細かい画面ショットのサイズ調整ができません。
+あまり評判がよくない機能ですが、細かい画面ショットのサイズ・位置調整に必要です。
 - Markdownファイルと同名のCSSを読み込む機能
 - 見出しにIDを振る（目次に必要）
 - Highlight.jsを使ったソースコードの色分け<br>
