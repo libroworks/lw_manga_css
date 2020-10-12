@@ -77,7 +77,7 @@ CSSは「30_genkou/_css」フォルダに収録されています。ページ設
 
 https://atom.io/packages/mdbp-markdown-book-preview
 
-AtomエディタにMDBPをインストールした後、「フォルダを開く」機能でローカルリポジトリを開き、Markdownファイルのどれかを右クリックして「MDBP→Start Live Server」、「MDBP→Open Vivliostyle Preview」を選択します。
+AtomエディタにMDBPをインストールした後、「フォルダを開く」機能でローカルリポジトリを開き、Markdownファイルのどれかを開いて右クリックし、「MDBP→Start Live Server」、「MDBP→Open Vivliostyle Preview」を選択します。
 
 ### Markdown変換ルールについて
 ルールについては以下のファイルにまとめています（更新中）。
@@ -99,7 +99,7 @@ Markdown変換のためにMDBP以外の変換ツールを使ってもよいの�
 
 
 ## WordPress用CSSについて
-「3_frame_wp.css」はWebページ向けに軽くカスタマイズしたものです。
+「3_frame_wp.css」はWebページ向けに軽くカスタマイズしたものです（印刷用のCSSを簡単な調整でWeb向けにしているので、無駄な記述が多めかもしれません）。
 
 WordPressで使う場合は、WPフォルダ内のどこかに3_frame_wp.css、manga_charaフォルダ、manga_backフォルダ、3frame_fukidashi_c/l/r.svgをアップロードし、「Code Snippets」などのfunction.phpを編集するプラグインを使ってCSSファイルを読み込みます。
 
