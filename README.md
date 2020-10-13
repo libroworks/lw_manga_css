@@ -10,10 +10,12 @@
 出力結果については、「40_pdf/fullpage_sample.pdf」をご覧ください。
 
 ## とりあえず見る方法
-1. ローカルにCloneして個々のHTMLをwebブラウザで開く。ページングはされないがとりあえず見ることができます。
-2. ローカルでWebサーバーを立ち上げてルートにファイルを配置し、「`http://localhost/30_genkou/viewer/#src=../00_maeduke.html&bookMode=true`」のような指定で開く。
-3. 当社製のAtomエディタ用パッケージ[MDBP](https://atom.io/packages/mdbp-markdown-book-preview)で、00_maeduke.mdを開く。
-4. レンダリング後のPDFが「40_pdf/fullpage_sample.pdf」です。
+1. vivliostyle.orgのviewerを利用する。<br>
+https://vivliostyle.org/viewer/#src=https://github.com/libroworks/lw_manga_css/blob/master/30_genkou/00_maeduke.html&bookMode=true
+2. ローカルにCloneして個々のHTMLをwebブラウザで開く。ページングはされないがとりあえず見ることができます。
+3. ローカルでWebサーバーを立ち上げてルートにファイルを配置し、「`http://localhost/30_genkou/viewer/#src=../00_maeduke.html&bookMode=true`」のような指定で開く。
+4. リブロワークス製のAtomエディタ用パッケージ[MDBP](https://atom.io/packages/mdbp-markdown-book-preview)で、00_maeduke.mdを開く。
+5. レンダリング後のPDFが「40_pdf/fullpage_sample.pdf」です。
 
 
 ## CSSについて
