@@ -197,4 +197,4 @@
 
 @divend
 
-<small>Original css created by LibroWorks. https://libroworks.co.jp/</small>
+<small>lw_manga_css was created by LibroWorks. https://libroworks.co.jp/</small>
