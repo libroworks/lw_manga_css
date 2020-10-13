@@ -75,7 +75,7 @@ https://atom.io/packages/mdbp-markdown-book-preview
 
 AtomエディタにMDBPをインストールした後、「フォルダを開く」機能でローカルリポジトリを開き、Markdownファイルのどれかを開いて右クリックし、「MDBP→Start Live Server」、「MDBP→Open Vivliostyle Preview」を選択します。
 
-### Markdown変換ルールについて
+### Markdown内の書式指定ルールについて
 ルールについては以下のファイルにまとめています（更新中）。
 
 30_genkou/format_desing_test/mangaformat.md
