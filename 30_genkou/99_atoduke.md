@@ -185,7 +185,7 @@
 
 @divend
 
-<br><br><br><br>
+<br><br><br><br><br><br><br>
 
 @div:vs_info
 
@@ -196,3 +196,5 @@
 
 
 @divend
+
+<small>Original css created by LibroWorks. https://libroworks.co.jp/</small>
