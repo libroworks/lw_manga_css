@@ -71,12 +71,26 @@ ffull
 
 @divend
 
-![](img0/zuhan0/zuhan0-1.svg?svgimg=30,,30)
+<!-- ![](img0/zuhan0/zuhan0-1.svg?svgimg=30,,30) -->
 
-ショートカットとして、＠frameを＠「、＠fendを＠」としてもよいことにしました（＠は半角）。
+---
+
+
+###### マンガコマ表記の基本形
+```
+＠雪「kohon fslim
+セリフ
+＠」
+
+＠アリス「doya fslim
+セリフ
+＠」
+```
+
+以降も含めて＠はすべて半角です。
 
 ### 背景と中央揃え
-無指定の場合、アリスは左、雪は右に寄ります。**centering指定で中央に寄せる**ことができます（コマ幅によってはうまくいかないことも）
+無指定の場合、アリスは左、雪は右に寄ります。**centering指定で中央に寄せる**ことができます（基本fwideと組み合わせて使います）
 
 ====
 @雪「centering kohon back000
@@ -91,15 +105,29 @@ default
 
 @divend
 
-![](img0/zuhan0/zuhan0-2.svg?svgimg=30,,38)
+```
+＠雪「kohon fwide centering back000
+セリフ
 
+＃心の声
+＠」
+```
 
-TODO：背景パターンを増やすかどうか要検討
+心の声は空きがさみしいときに使います。
+
 
 ### マンガ全体の囲み
-マンガ全体の囲み（＠div:container～＠divend）は、css flexboxを使って**コマを横に並べる**ために使います。これで囲まない場合、コマは通常の文章や画像などと同じく縦に並びます。
+マンガ全体の囲み（＠div:container～＠divend）は、css flexboxを使って**コマを横に並べる**ために使います。これで囲まない場合、コマは通常の文章や画像などと同じく縦に並びます。＠div:containerは4つ以上の半角=で代用できます。
 
-![](img0/zuhan0/zuhan0-3.svg?svgimg=30,,25)
+```
+＝＝＝＝
+
+マンガコマの指定を並べる
+
+＠divend
+```
+
+<!-- ![](img0/zuhan0/zuhan0-3.svg?svgimg=30,,25) -->
 
 
 ### 特殊なパターン（章冒頭に置くスタートコマ）
@@ -111,17 +139,27 @@ TODO：背景パターンを増やすかどうか要検討
 てもいますよ
 @」
 
-![](img0/zuhan0/zuhan0-4.svg?svgimg=30,,32)
+
+```
+＠「starting fwide
+雪ちゃん、雪ちゃん、雪ちゃーん！
+
+＃そんなに呼ばなく<br>
+てもいますよ
+＠」
+```
+
+<!-- ![](img0/zuhan0/zuhan0-4.svg?svgimg=30,,32) -->
 
 
+---
 
 ### 特殊なパターン（フルサイズで1画面に2人）
-二人の向きが決まっているので、吹き出しの尻尾を付けないとどっち向きかわからない。TODO：吹き出しのafter要素でSVG画像のシッポを付ける。
+＠fleftまたは＠frightを指定した場合、コマ幅をゼロにして前のコマに入ります。
 
 ====
 @雪「soreda ffull
 画像も入る。拡張してても基本はMarkdownだから
-![](img0/chap4zu5.JPG?svgimg=30)
 @」
 
 @アリス「yatta fleft
@@ -130,9 +168,126 @@ TODO：背景パターンを増やすかどうか要検討
 
 @divend
 
-![](img0/zuhan0/zuhan0-5.svg?svgimg=30,,32)
+```
+＝＝＝＝
+＠雪「soreda ffull
+画像も入る。拡張してても基本はMarkdownだから
+＠」
+
+＠アリス「yatta fleft
+すごーい
+＠」
+
+＠divend
+````
+
+====
+@アリス「doya fwide
+＠fwideと組み合わせるときは、fslimで埋める
+@」
+
+@雪「soreda fright
+ですよー　
+@」
+
+@div:blank fslim
+
+@divend
+
+@divend
+
+
+```
+＝＝＝＝
+＠アリス「doya fwide
+＠fwideと組み合わせるときは、fslimで埋める
+＠」
+
+＠雪「soreda fright
+ですよー　
+＠」
+
+＠div:blank fslim
+
+＠divend
+
+＠divend
+```
+
+<!-- ![](img0/zuhan0/zuhan0-5.svg?svgimg=30,,32) -->
 
 ---
+
+### コマの隙間に図版を入れる
+
+====
+
+@雪「kohon fwide back001
+セリフだけでは間が持たない
+
+@div:inlinefigure
+![](img0/zuhan0/chap1zu3.svg?svgimg=40,80,35,-6,12)
+@divend
+
+@」
+
+@divend
+
+```
+＠雪「kohon fwide back001
+セリフだけでは間が持たない
+
+＠div:inlinefigure
+！[](img0/zuhan0/chap1zu3.svg?svgimg=40,80,35,-6,12)
+＠divend
+
+＠」
+```
+
+セリフの中に図版を入れた場合、普通なら吹き出しの中に入ります。それを＠div:inlinefigure～＠divendで囲むと、絶対配置（position:aboslute）によって外に出します。
+
+- 背景を透過する必要があります。
+- 図版の位置とサイズはMDBPのsvgimg指定で指定します。
+
+```
+?svgimg=拡大率,幅,高さ,xシフト,yシフト
+```
+
+---
+
+### 高さの指定
+どうしてもコマがうまく入らないときに使うftallという指定があります。
+
+===
+
+@雪「kohon fslim
+通常は46mm
+@」
+
+@雪「kohon fslim ftall
+ftallは54mm
+@」
+
+@雪「kohon fslim ftall7
+ftall7は73mm
+@」
+
+@divend
+
+```
+＠雪「kohon fslim ftall
+ftallは54mm
+＠」
+```
+
+|指定| 高さ
+|--|--
+|ftall | 54mm
+|ftall7 | 73mm
+|ftall40 | 40mm
+|ftall43 | 43mm
+|ftall48 | 48mm
+
 
 ---
 ### 表情パターンと指定
@@ -404,83 +559,25 @@ back015
 
 ---
 
-## 分割テスト
-=======
-@「starting fwide
-雪ちゃんいるー？
-
-＃はい、ここに
-@」
+## 会話
 
 
-@アリス「doya fslim
-雪ちゃん、「ほにゃらら」って知ってる？
-@」
+【雪kohon】たいていの場合、先生役のセリフは長く、生徒役のセリフは短いです
 
-@雪「iyada fslim
-心得はございますが、なにゆえほにゃららに興味を？
-@」
+【アリスdoya】そうなんだよね。だから右寄せ
 
-@アリス「shibu fslim
-この間「ほにゃらら」を知らなくて恥をかいたのよ
-@」
+【アリスdoya】でも生徒が長いセリフをしゃべることもあるわけで、その場合、右寄せだと変なことに
 
-@雪「jito fslim
-そんなことが……
-@」
-
-@アリス「doya fslim
-雪ちゃん、「ほにゃらら」って知ってる？
-@」
-
-@雪「iyada fslim
-心得はございますが、なにゆえほにゃららに興味を？
-@」
-
-@アリス「shibu fslim
-この間「ほにゃらら」を知らなくて恥をかいたのよ
-@」
-
-@divend
-
-=======
-
-@雪「jito fslim
-そんなことが……
-@」
-
-@アリス「doya fslim
-雪ちゃん、「ほにゃらら」って知ってる？
-@」
-
-@雪「iyada fslim
-心得はございますが、なにゆえほにゃららに興味を？
-@」
-
-@アリス「shibu fslim
-この間「ほにゃらら」を知らなくて恥をかいたのよ
-@」
-
-@雪「jito fslim
-そんなことが……
-@」
-
-@アリス「doya fslim
-雪ちゃん、「ほにゃらら」って知ってる？
-@」
-
-@雪「iyada fslim
-心得はございますが、なにゆえほにゃららに興味を？
-@」
-
-@アリス「shibu fslim
-この間「ほにゃらら」を知らなくて恥をかいたのよ
-@」
-
-@雪「jito fslim
-そんなことが……
-@」
+【アリスdoya hidariyose】仕方がないので左寄せ指定を加えます。これを指定すると左寄せになるので
 
 
+会話は墨付きカッコ（【】）の中にキャラと表情指定を書きます。複数段落にすることはできません。
+```
+【雪kohon】たいていの場合、先生役のセリフは長く、生徒役のセリフは短いです
 
-@divend
+【アリスdoya】そうなんだよね。だから右寄せ
+
+【アリスdoya】でも生徒が長いセリフをしゃべることもあるわけで、その場合、右寄せだと変なことに
+
+【アリスdoya hidariyose】仕方がないので左寄せ指定を加えます。これを指定すると左寄せになるので
+```
