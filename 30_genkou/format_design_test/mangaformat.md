@@ -268,8 +268,9 @@ default
 ftallは54mm
 @」
 
-@雪「kohon fslim ftall7
-ftall7は73mm
+@雪「kohon fslim ftall7 serifshort
+ftall7は73mm<br>
+serifshort
 @」
 
 @divend
@@ -287,6 +288,7 @@ ftallは54mm
 |ftall40 | 40mm
 |ftall43 | 43mm
 |ftall48 | 48mm
+|fshort | 37mm
 
 
 ---
@@ -557,7 +559,28 @@ back015
 
 ---
 
----
+### セリフが長いとき
+===
+@雪「anone
+たいていの場合、先生役のセリフは長く、生徒役のセリフは短いです。セリフを左寄せ（hidariyose）にして改行位置（br）で調整します。
+@」
+
+@雪「anone hidariyose
+たいていの場合、先生役のセリフは長く、生徒役のセリフは短いです。セリフを左寄せ（hidariyose）にして<br>
+改行位置（br）で<br>
+　調整します。<br>
+@」
+
+@divend
+
+```
+＠雪「anone hidariyose
+たいていの場合、先生役のセリフは長く、生徒役のセリフは短いです。セリフを左寄せ（hidariyose）にして<br>
+改行位置（br）で<br>
+　調整します。<br>
+＠」
+```
+
 
 ## 会話
 
@@ -581,3 +604,5 @@ back015
 
 【アリスdoya hidariyose】仕方がないので左寄せ指定を加えます。これを指定すると左寄せになるので
 ```
+
+【アリスdoya hidariyose kwhf】hidariyose＋kwhfなんて指定もあります。会話ハーフ
