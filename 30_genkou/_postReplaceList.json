@@ -68,6 +68,38 @@
     "r": "<\/kbd>"
   },
   {
+      "f": "<li([^>]*)>(.*)@lu([0-9]+),([0-9]+)@([0-9]+),([0-9]+)<\/li>",
+      "r": "<li$1 style=\"position:absolute;left:$5mm;top:$6mm;\" class=\"movitem-lu\"><svg viewbox=\"0 0 $3 $4\" width=\"$3mm\" height=\"$4mm\" style=\"position:absolute;left:-$3mm;top:-$4mm\"><line fill=\"none\" stroke=\"#222\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"$4\"/><line fill=\"none\" stroke=\"#222\" x1=\"0\" y1=\"$4\" x2=\"$3\" y2=\"$4\" \/><\/svg>$2<\/li>"
+  },
+  {
+      "f": "<li([^>]*)>(.*)@ld([0-9]+),([0-9]+)@([0-9]+),([0-9]+)<\/li>",
+      "r": "<li$1 style=\"position:absolute;left:$5mm;top:$6mm;\" class=\"movitem-ld\"><svg viewbox=\"0 0 $3 $4\" width=\"$3mm\" height=\"$4mm\" style=\"position:absolute;left:-$3mm;top:2mm\"><line fill=\"none\" stroke=\"#222\" x1=\"0\" y1=\"0\" x2=\"$3\" y2=\"0\"/><line fill=\"none\" stroke=\"#222\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"$4\" \/><\/svg>$2<\/li>"
+  },
+  {
+      "f": "<li([^>]*)>(.*)@ru([0-9]+),([0-9]+)@([0-9]+),([0-9]+)<\/li>",
+      "r": "<li$1 style=\"position:absolute;left:$5mm;top:$6mm;\" class=\"movitem-ru\"><svg viewbox=\"0 0 $3 $4\" width=\"$3mm\" height=\"$4mm\" style=\"position:absolute;right:-$3mm;top:-$4mm\"><line fill=\"none\" stroke=\"#222\" x1=\"$3\" y1=\"0\" x2=\"$3\" y2=\"$4\"/><line fill=\"none\" stroke=\"#222\" x1=\"0\" y1=\"$4\" x2=\"$3\" y2=\"$4\" \/><\/svg>$2<\/li>"
+  },
+  {
+      "f": "<li([^>]*)>(.*)@rd([0-9]+),([0-9]+)@([0-9]+),([0-9]+)<\/li>",
+      "r": "<li$1 style=\"position:absolute;left:$5mm;top:$6mm;\" class=\"movitem-rd\"><svg viewbox=\"0 0 $3 $4\" width=\"$3mm\" height=\"$4mm\" style=\"position:absolute;right:-$3mm;top:2mm\"><line fill=\"none\" stroke=\"#222\" x1=\"0\" y1=\"0\" x2=\"$3\" y2=\"0\"/><line fill=\"none\" stroke=\"#222\" x1=\"$3\" y1=\"0\" x2=\"$3\" y2=\"$4\" \/><\/svg>$2<\/li>"
+  },
+  {
+      "f": "<li([^>]*)>(.*)@ls([0-9]+)@([0-9]+),([0-9]+)<\/li>",
+      "r": "<li$1 style=\"position:absolute;left:$4mm;top:$5mm;\" class=\"movitem-ls\"><svg viewbox=\"0 0 $3 1\" width=\"$3mm\" height=\"1mm\" style=\"position:absolute;left:-$3mm;top:0\"><line fill=\"none\" stroke=\"#222\" x1=\"0\" y1=\"0\" x2=\"$3\" y2=\"0\"/><\/svg>$2<\/li>"
+  },
+  {
+      "f": "<li([^>]*)>(.*)@us([0-9]+)@([0-9]+),([0-9]+)<\/li>",
+      "r": "<li$1 style=\"position:absolute;left:$4mm;top:$5mm;\" class=\"movitem-us\"><svg viewbox=\"0 0 1 $3\" width=\"1mm\" height=\"$3mm\" style=\"position:absolute;left:2mm;top:-$3mm\"><line fill=\"none\" stroke=\"#222\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"$3\"/><\/svg>$2<\/li>"
+  },
+  {
+      "f": "<li([^>]*)>(.*)@ds([0-9]+)@([0-9]+),([0-9]+)<\/li>",
+      "r": "<li$1 style=\"position:absolute;left:$4mm;top:$5mm;\" class=\"movitem-ds\"><svg viewbox=\"0 0 1 $3\" width=\"1mm\" height=\"$3mm\" style=\"position:absolute;left:2mm;bottom:-$3mm\"><line fill=\"none\" stroke=\"#222\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"$3\"/><\/svg>$2<\/li>"
+  },
+  {
+      "f": "<li([^>]*)>(.*)@rs([0-9]+)@([0-9]+),([0-9]+)<\/li>",
+      "r": "<li$1 style=\"position:absolute;left:$4mm;top:$5mm;\" class=\"movitem-rs\"><svg viewbox=\"0 0 $3 1\" width=\"$3mm\" height=\"1mm\" style=\"position:absolute;right:-$3mm;top:2.5mm\"><line fill=\"none\" stroke=\"#222\" x1=\"0\" y1=\"0\" x2=\"$3\" y2=\"0\"/><\/svg>$2<\/li>"
+  },
+  {
       "f": "<li[^>]*>▶",
       "r": "<li class=\"aokome\">"
   },

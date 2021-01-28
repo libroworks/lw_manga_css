@@ -1,12 +1,5 @@
 @charset "UTF-8";
-
-/* 会話とマンガ部分以外の基本となるスタイル
-This CSS was created by LibroWorks, Yuichio Ohtsu, Atsushi Kazama.
-*/
-
-
-/* Vivliostyleではこの形式のGoogle Fontsは使用できない
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap'); */
 
 /*リセット*/
 html {
@@ -22,7 +15,6 @@ html {
     padding: 0;
 }
 
-/* フォントはcss/fontsフォルダのファイルを直接参照 */
 @font-face{
   font-family: keyfont;
   src: url("fonts/keyboard-JP-Regular.otf");
@@ -467,6 +459,37 @@ blockquote::after {
     margin-top: 2mm;
 }
 
+.figure ul{
+    /* position: absolute;
+    right: 0; */
+    list-style: none;
+    margin: 0;
+}
+.figure li{
+    font-family: notosans-m;
+    font-feature-settings: "palt" 1;
+    width: 12em;
+    font-size: 10q;
+    line-height: 15q;
+    border: solid 0.25mm #FFF;
+    background: #222;
+    color: #FFF;
+    margin-bottom: 2mm;
+    border-radius: 2mm;
+    padding: 0.5mm 1.5mm 1mm 1.5mm;
+}
+.figure li svg{
+    border: none;
+}
+.movitem-lu svg{
+    transform: translateY(3mm);
+}
+.movitem-ls svg{
+    transform: translateY(3mm);
+}
+.movitem-ru svg{
+    transform: translateY(3mm);
+}
 
 /* pagebreak直後の見出しの上アキをゼロに（版面天付きに） */
 .pagebreak + h3, .pagebreak + h4, .pagebreak + h5, .pagebreak + h6{
