@@ -663,3 +663,51 @@ back015
 ```
 
 【アリスgyao hidariyose】ミリ指定なので、指定後に画像サイズが変わると大変なことになるよ
+
+## 数式テスト
+
+@雪「jito ffull
+<div data-math-typeset="true">
+When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) <br>
+and they are
+</div>
+
+@div:inlinefigure
+
+<br>
+
+<div data-math-typeset="true">
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+<br>
+$$\sum_{i = 1}^{\infty}\frac{i}{2}$$
+</div>
+
+@divend
+
+＃<br><br>これでいいのかな……？
+
+@」
+
+```html
+＠雪「jito ffull
+<div data-math-typeset="true">
+When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) <br>
+and they are
+</div>
+
+＠div:inlinefigure
+
+<br>
+
+<div data-math-typeset="true">      <!--←Vivliostyleの数式レンダリングを有効化-->
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$      <!--←これはTeX-->
+<br>
+$$\sum_{i = 1}^{\infty}\frac{i}{2}$$           <!--←これはTeX-->
+</div>
+
+＠divend
+
+＃<br><br>これでいいのかな……？
+
+＠」
+```
